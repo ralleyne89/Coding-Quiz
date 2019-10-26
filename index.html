@@ -25,7 +25,7 @@
                 <b id="timer"></b>
                 <h2 class="display-4">Score</h2>
                 <hr>
-                <p class="lead">Correct:</p>
+                <p class="results">Correct:</p>
               </div>
             </div>
     <!-- beginning of container holding questions -->
@@ -34,12 +34,12 @@
               <b>Intro to Javascript</b>
             </div>
             <div class="card-body">
-                    <div id="para"></div>
+                    <div id="quiz"></div>
                     <!-- <div id="radios"></div> -->
-                    <button class="btns btn-grid btn1">HTML</button>
-                    <button class="btns btn-grid btn2">CSS</button>
-                    <button class="btns btn-grid btn3">JAVASCRIPT</button>
-                    <button class="btns btn-grid btn4">JQUERY</button>
+                    <button class="btns btn-grid btn1 submit">HTML</button>
+                    <button class="btns btn-grid btn2 submit">CSS</button>
+                    <button class="btns btn-grid btn3 submit">JAVASCRIPT</button>
+                    <button class="btns btn-grid btn4 submit">JQUERY</button>
                       
                       
                      
@@ -47,7 +47,7 @@
           </div>
              
       <!-- next page button -->
-      <button class="btns submit-btn" id="submit">Next</button>
+      <button class="btns submit-btn" id="nextquestion">Next</button>
     <!-- beginning of jquery and javascript script -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -65,13 +65,5 @@
       crossorigin="anonymous"
     ></script>
     <script src="script.js"></script>
-    <script>
-        $(document).ready(function() {
-            // $('.form-check-input').click(function() {
-            //     $(this).not(this).removeClass('click');
-            //     $(this).toggleClass('click');
-            // })
-        });
-    </script>
   </body>
 </html>

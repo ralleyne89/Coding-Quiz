@@ -1,133 +1,140 @@
 $(document).ready(function() {
+  
+    // create an alert to begin the quiz
+  alert("Welcome to your Quiz! Click OK to get started");
 
-// create an alert to begin the quiz
-alert('Welcome to your Quiz! Click OK to get started');
+  // make a timer when the quiz begins, have a variable to hold the time input
+  var seconds = 91;
 
-// make a timer when the quiz begins, have a variable to hold the time input 
-var seconds = 91;
+  // create an action that makes the timer countdown
+  function timerCountdown() {
 
-// create an action that makes the timer countdown
-function timerCountdown() {
-    // $("#timer").html(minutes + ':' + seconds);
-     var count = setInterval(function(){
-         seconds--;
-        
-        // once the number hits zero, clear the number then start over  
-        if (seconds === 0 ) {
-             clearInterval(count);
-             $('#timer').text("DONE!")
-         } else {
-             $("#timer").html(": " + seconds + " remain");
-         } 
-     }, 1000);
-};
+    // in this section the time begins to subtract
+    var count = setInterval(function() {
+      seconds--;
 
-timerCountdown();
-// // first create the header
-//  $("#header").append("<h1>Web Development Quiz</h1><hr>");
+      // once the number hits zero, display done
+      if (seconds === 0) {
+        clearInterval(count);
+        $("#timer").text("DONE!");
+      } else {
+        $("#timer").html(": " + seconds + " remain");
+      }
+    }, 1000);
+  }
 
- //   next create a paragraph with questions
-// $("#para").append('<h2>Question 1</h2><hr><p>Which of the languages uses a $ </p>');
+  // call the countdown timer
+  timerCountdown();
 
-// // create 4 radio buttons for answer selection
-// $('<input type = "radio" name = "dynradio" value = "A" /> HTML<br><br>').appendTo('#radios');
-// $('<input type = "radio" name = "dynradio" value = "B" /> CSS<br><br>').appendTo('#radios');
-// $('<input type = "radio" name = "dynradio" value = "C" /> Javascript<br><br>').appendTo('#radios');
-// $('<input type = "radio" name = "dynradio" value = "D" /> Jquery<br><br>').appendTo('#radios');
+  //   for some reason the question will only display when I append it like this, I could not figure out how to append the array of questions to the page
+  $("#quiz").append(
+    "<h2>Question 1</h2><hr><p>Which of the languages uses a $ </p>"
+  );
 
-// // create a button to submit the answer
-// $('').appendTo('#submit');
+  var quizContainer = document.getElementsById("quiz");
+  var resultsContainer = document.getElementsById("results");
+  var submitButton = document.getElementsByClassName("submit");
+  var score = 0;
 
-// create a variable that holds the answers to the quiz, also create a loop to go through the array of answers
-// for (i = 0; i < answers.length; i++){
-//     answer1 += answers.charAt(Math.floor(i));
-// }
-// const shuffledQuestions, currentQuestionIndex
+  function startQuiz() {
+   
+    // a container to hold the output of questions
+    var output = [];
 
-// function setNextQuestion() {
-
-// }
-
-var score = 0;
-var myQuestions = [
-    {
-        question: 'Which of the following use the $ symbol to begin a command?',
+    // create an array of questions and answers for the quiz
+    var myQuestions = [
+      {
+        question: "Which of the following use the $ symbol to begin a command?",
         answers: {
-            a: "html",
-            b: "css",
-            c: "javascript",
-            d: "jquery"
+          a: "html",
+          b: "css",
+          c: "javascript",
+          d: "jquery"
         },
         correctAnswer: "c"
-    },
-    {
+      },
+      {
         question: "What does API stand for?",
         answers: {
-            a: "artifical programming interface",
-            b: "application programming interface",
-            c: "atomic platform intel",
-            d: "ajax platform interface"
+          a: "artifical programming interface",
+          b: "application programming interface",
+          c: "atomic platform intel",
+          d: "ajax platform interface"
         },
         correctAnswer: "b"
-    },
-    {
+      },
+      {
         question: "Jquery is a ...",
         answers: {
-            a: "Javascript Library",
-            b: "Javascript Language",
-            c: "Javascript Method",
-            d: "PHP Method"
+          a: "Javascript Library",
+          b: "Javascript Language",
+          c: "Javascript Method",
+          d: "PHP Method"
         },
         correctAnswer: "a"
-    },
-    {
+      },
+      {
         question: "Which sign does jQuery use as a shorcut for jQuery?",
         answers: {
-            a: "the % sign",
-            b: "the ? sign",
-            c: "the $ sign",
-            d: "all of the above"
+          a: "the % sign",
+          b: "the ? sign",
+          c: "the $ sign",
+          d: "all of the above"
         },
         correctAnswer: "c"
-    },
-    {
+      },
+      {
         question: "Which jQuery method is used to hide selected elements?",
         answers: {
-            a: "hidden()",
-            b: "hide()",
-            c: "visible(false)",
-            d: "display(none)"
+          a: "hidden()",
+          b: "hide()",
+          c: "visible(false)",
+          d: "display(none)"
         },
         correctAnswer: "b"
-    }
-];
+      }
+    ];
+    // this is going to be the section that changes to the next question, using a "forEach" loop
+    // honestly im not sure how to use it, which is why it isnt working, very difficult
+    myQuestions.forEach((currentQuestion, questionNumber) => {
+      var answers = [];
+      for (letter in currentQuestion.answers) {
+        answers.push(
+          `<div name = "question${questionNumber}" value = "${letter}">${letter} : ${currentQuestion.answers[letter]}</div>`
+        );
+      }
+    });
+    output.push(
+      `<div class = "question">${
+        currentQuestion.question
+      }</div> <div class = "answers">${answers.join("")}</div>`
+    );
+    // inputs the question on the page
+    quizContainer.innerHTML = output.join("");
+  }
 
-function startQuiz() {
-    var output = [];
-    myQuestions.forEach(
-        (currentQuestion, questionNumber) => {
-            var answers = [];
-            for (letter in currentQuestion.answers) {
-                output.push(`<div class = para></div>`)
-            }
-        }
-    )
-}
+  startQuiz();
 
-// create a function to submit your answer
-$('#submit').on('click', function nextPage(){
-    
-// after question 1 is submitted question 2 will appear in its place 
-$('#para').html("<h2>Question 2</h2><hr><p>this is where the question goes, choose an answer</p>");
-$('#radios').html('<input type = "radio" name = "dynradio" value = "A" /> Dog <br> <br> <input type = "radio" name = "dynradio" value = "B" /> Cat <br> <br> <input type = "radio" name = "dynradio" value = "C" /> Horse <br> <br> <input type = "radio" name = "dynradio" value = "D" /> Fish<br><br>');
-
-
+  function showResults() {
+    var answersContainers = quizContainer.querySelectorAll(".answers");
+    var numCorrect = 0;
+    myQuestions.forEach((currentQuestion, questionNumber) => {
+      var answerContainer = answersContainers[questionNumber];
+      var selector = "input[name = question" + questionNumber + "]: checked]";
+      var userAnswer = (answerContainer.querySelector(selector) || {}).value;
+      // now create a loop to check if the answers are correct
+      if (userAnswer === currentQuestion.correctAnswer) {
+        score++;
+        answerContainers[questionNumber].style.color = "lightgreen";
+      } else {
+        answersContainers[questionNumber].style.color = "red";
+      }
+    });
+    resultsContainer.innerHTML = score + " out of " + myQuestions.length;
+    submitButton.addEventListenner("click", showResults);
+  }
+  showResults();
 });
-
-// alert will appear to verify the answers
-});
-
-
 
 /*
 Our goal was to create a coding quiz with functionality. 
