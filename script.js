@@ -28,8 +28,13 @@ $(document).ready(function() {
 
   //   for some reason the question will only display when I append it like this, I could not figure out how to append the array of questions to the page
   $("#quiz").append(
-    "<h2>Question 1</h2><hr><p>Which of the languages uses a $ </p>"
+    "<h2>Question 1</h2><hr><p>Which of the following use the $ symbol to begin a command?</p>"
   );
+
+  $('#nextquestion').on('click', function() {
+      $('#quiz').html('<h2>Question 2</h2><hr><p>What does API stand for</p>')
+  });
+
 
   var quizContainer = document.getElementsById("quiz");
   var resultsContainer = document.getElementsById("results");
