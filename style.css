@@ -1,0 +1,53 @@
+body {
+    background-color: gray;
+    margin: 0;
+    padding: 0;
+}
+
+.card, .jumbotron {
+    padding: 0;
+    margin: 0 auto;
+    display: block;
+    width: 800px;
+    max-width: 80%;
+    height: 70vh;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px 2px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.btns {
+    display: block;
+    float: left;
+    color: white;
+    background-color: rgb(223, 44, 12);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+}
+.btns:hover {
+    background-color: salmon;
+}
+
+.navbar {
+    margin-bottom: 30px;
+    background-color: rgb(223, 44, 12) !important;
+}
+.submit-btn {
+    margin: 10px 15%;
+    float: right;
+}
+
+#timer {
+    display: flex;
+    color: white;
+    background-color: rgb(223, 44, 12);
+    padding: 5px;
+    border-radius: 20px;
+    width: 110px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+}

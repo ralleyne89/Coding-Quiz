@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Web Development Quiz</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar navbar-dark bg-primary">
+            <!-- Navbar content -->
+            <a class="navbar-brand" href="#">Web Development Quiz</a>
+          </nav>
+          <!-- jumbotron for the score keeper -->
+          <div class="jumbotron jumbotron-fluid">
+              <div class="container">
+                <b id="timer"></b>
+                <h2 class="display-4">Score</h2>
+                <hr>
+                <p class="lead">Correct:</p>
+              </div>
+            </div>
+    <!-- beginning of container holding questions -->
+    <div class="card question-container">
+            <div class="card-header">
+              <b>Intro to Javascript</b>
+            </div>
+            <div class="card-body">
+                    <div id="para"></div>
+                    <!-- <div id="radios"></div> -->
+                    <button class="btns btn-grid btn1">HTML</button>
+                    <button class="btns btn-grid btn2">CSS</button>
+                    <button class="btns btn-grid btn3">JAVASCRIPT</button>
+                    <button class="btns btn-grid btn4">JQUERY</button>
+                      
+                      
+                     
+            </div>
+          </div>
+             
+      <!-- next page button -->
+      <button class="btns submit-btn" id="submit">Next</button>
+    <!-- beginning of jquery and javascript script -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+    <script>
+        $(document).ready(function() {
+            // $('.form-check-input').click(function() {
+            //     $(this).not(this).removeClass('click');
+            //     $(this).toggleClass('click');
+            // })
+        });
+    </script>
+  </body>
+</html>
